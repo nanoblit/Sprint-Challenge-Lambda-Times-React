@@ -59,6 +59,8 @@ export default class Carousel extends Component {
               bottom: 0,
               right: 0,
               zIndex: 0,
+              height: '100%',
+              objectFit: 'cover',
             }}
           />
         </ReactCSSTransitionGroup>
