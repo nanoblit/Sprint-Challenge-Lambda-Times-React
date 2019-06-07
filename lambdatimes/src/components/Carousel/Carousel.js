@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { carouselData } from '../../data';
 // Complete this Carousel
 export default class Carousel extends Component {
@@ -36,12 +37,32 @@ export default class Carousel extends Component {
 
   render() {
     return (
-      <div className="carousel">
-        <div className="left-button" onClick={this.leftClick}>
+      <div className="carousel" style={{ position: 'relative' }}>
+        <div className="left-button" onClick={this.leftClick} style={{ zIndex: 1 }}>
           {'<'}
         </div>
-        <img src={this.state.images[this.state.currentIndex]} style={{ display: 'block' }} />
-        <div className="right-button" onClick={this.rightClick}>
+        <ReactCSSTransitionGroup
+          transitionName="carousel-transition"
+          transitionAppear
+          transitionAppearTimeout={500}
+          transitionEnterTimeout={400}
+          transitionLeaveTimeout={400}
+        >
+          <img
+            key={this.state.currentIndex}
+            src={this.state.images[this.state.currentIndex]}
+            style={{
+              display: 'block',
+              position: 'absolute',
+              left: 0,
+              top: 0,
+              bottom: 0,
+              right: 0,
+              zIndex: 0,
+            }}
+          />
+        </ReactCSSTransitionGroup>
+        <div className="right-button" onClick={this.rightClick} style={{ zIndex: 1 }}>
           {'>'}
         </div>
       </div>

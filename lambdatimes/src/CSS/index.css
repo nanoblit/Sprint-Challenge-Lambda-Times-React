@@ -314,3 +314,30 @@ body {
   width: 100%;
   display: none;
 }
+
+.carousel-transition-enter {
+  opacity: 0.01;
+}
+
+.carousel-transition-enter.carousel-transition-enter-active {
+  opacity: 1;
+  transition: opacity 400ms;
+}
+
+.carousel-transition-leave {
+  opacity: 1;
+}
+
+.carousel-transition-leave.carousel-transition-leave-active {
+  opacity: 0.01;
+  transition: opacity 400ms;
+}
+
+.carousel-transition-appear {
+  opacity: 0.01;
+}
+
+.carousel-transition-appear.carousel-transition-appear-active {
+  opacity: 1;
+  transition: opacity .4s;
+}
